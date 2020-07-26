@@ -9,30 +9,53 @@
   <body>
     <div class="container">
       <div class="calculator-box">
-        <input type="text" disabled />
+        <div class="display-box" id="display"></div>
         <div class="calculator-buttons">
-          <button>C</button>
-          <button>/</button>
-          <button>*</button>
-          <button>-</button>
-          <button>7</button>
-          <button>8</button>
-          <button>9</button>
-          <button class="plus">+</button>
-          <button>4</button>
-          <button>5</button>
-          <button>6</button>
+          <button onclick="pushBtn(this)">C</button>
+          <button onclick="pushBtn(this)">/</button>
+          <button onclick="pushBtn(this)">*</button>
+          <button onclick="pushBtn(this)">-</button>
+          
+          <button onclick="pushBtn(this)">7</button>
+          <button onclick="pushBtn(this)">8</button>
+          <button onclick="pushBtn(this)">9</button>
+          
+          <button class="plus" onclick="pushBtn(this)">+</button>
+          
+          <button onclick="pushBtn(this)">4</button>
+          <button onclick="pushBtn(this)">5</button>
+          <button onclick="pushBtn(this)">6</button>
 
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button class="enter">Enter</button>
+          <button onclick="pushBtn(this)">1</button>
+          <button onclick="pushBtn(this)">2</button>
+          <button onclick="pushBtn(this)">3</button>
+          
+          <button class="enter" onclick="pushBtn(this)">Enter</button>
 
-          <button class="zero">0</button>
+          <button class="zero" onclick="pushBtn(this)">0</button>
 
-          <button>.</button>
+          <button onclick="pushBtn(this)">.</button>
         </div>
       </div>
     </div>
+
+    <script>
+      let display = document.getElementById("display");
+      function pushBtn(btn) {
+        let pushed = btn.innerHTML;
+
+        if (pushed == "Enter") {
+          display.innerHTML = eval(display.innerHTML);
+        } else if (pushed == "C") {
+          display.innerHTML = "0";
+        } else {
+          if (display.innerHTML == "0") {
+            display.innerText = pushed;
+          } else {
+            display.innerText += pushed;
+          }
+        }
+      }
+    </script>
   </body>
 </html>
